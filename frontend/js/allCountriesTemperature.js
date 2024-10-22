@@ -20,7 +20,7 @@ export function fetchTemperatureData(season, year) {
             })
             updateMapWithTemperture(filteredData)
 
-        }).catch((error)=>{
+        }).catch((error) => {
             console.log("Error fetching the temperature data: ", error);
         })
 }
@@ -37,9 +37,23 @@ fetch("https://raw.githubusercontent.com/johan/world.geo.json/refs/heads/master/
         // console.log('our geojson: ', geojsonData)
         geojson = L.geoJSON(geojsonData, {
             // style: styleCountry,
-            // onEachFeature
+            onEachFeature: onEachCountry
         }).addTo(map)
     })
+
+function onEachCountry(feature, layer) {
+    layer.on({
+        mouseover: highlightCountryInformation,
+    })
+}
+
+function highlightCountryInformation(element){
+    const countryLayer = element.target;
+    const countryName = countryLayer.feature.properties.name;
+
+    countryLayer.bindPopup(`<h5>${countryName}</h5>`)
+    .openPopup();
+}
 
 
 // get each country
