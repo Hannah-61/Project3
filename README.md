@@ -47,7 +47,7 @@ The dataset is sourced from Kaggle (https://www.kaggle.com/code/sevgisarac/clima
 - **Others**:
   - **GeoJSON** (for country borders and geographical data)
   - **CSV** (source data from Kaggle)
-  - **Python** libraries like `pandas` for data handling
+  - **Python** libraries like 'Pandas', 'Numpy', 'Plotly.Graph'  for data handling
 
 ---
 
